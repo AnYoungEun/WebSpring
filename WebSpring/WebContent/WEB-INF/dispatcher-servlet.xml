@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 예약되어있는 이름으로 만들어야함, 위치 유의-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- bean을 이용해 클래스 로드할 수 있도록, 컨트롤러 -->
+	<!-- url을 이 클래스가 처리할것임 -->
+	<!-- 아주 고전적인 방법 -->
+	<bean name="/board/board.ye" class="controllers.BoardController" />
+
+	<!-- 타일즈를 위한 리졸버 설정 -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions" value="/WEB-INF/tilesdef.xml"></property>
+	</bean>
+	
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles2.TilesView"></property>
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+</beans>
