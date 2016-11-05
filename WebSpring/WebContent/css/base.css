@@ -1,0 +1,30 @@
+.seq{
+	width:60px;
+}
+
+.title{
+	width:400px;
+}
+
+td.title{
+	text-align: left;
+	text-indent: 5px;	
+}
+
+td.title a:hover{
+	text-decoration: underline;
+}
+
+.writer
+{
+	width:100px;
+}
+
+.regdate
+{
+	width:100px;
+}
+
+.hit{
+	width:60px;
+}
