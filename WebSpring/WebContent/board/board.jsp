@@ -17,28 +17,7 @@
 			<tbody>
 				<tr>
 					<td class="seq">1</td>
-					<td class="title"><a href="#">제목1</a></td>
-					<td class="writer">관리자</td>
-					<td class="regdate">2016/10/19</td>
-					<td class="hit">0</td>
-				</tr>
-				<tr>
-					<td class="seq">2</td>
-					<td class="title"><a href="#">제목2</a></td>
-					<td class="writer">관리자</td>
-					<td class="regdate">2016/10/19</td>
-					<td class="hit">0</td>
-				</tr>
-				<tr>
-					<td class="seq">3</td>
-					<td class="title"><a href="#">제목3</a></td>
-					<td class="writer">관리자</td>
-					<td class="regdate">2016/10/19</td>
-					<td class="hit">0</td>
-				</tr>
-				<tr>
-					<td class="seq">4</td>
-					<td class="title"><a href="#">제목4</a></td>
+					<td class="title"><a href="#">${list[0].title}</a></td>
 					<td class="writer">관리자</td>
 					<td class="regdate">2016/10/19</td>
 					<td class="hit">0</td>

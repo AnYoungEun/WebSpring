@@ -25,6 +25,15 @@
       </plugin>
     </plugins>
   </build>
+  
+  <repositories>
+	<repository>
+	<id>oracle</id>
+	<name>ORACLE JDBC Repository</name>
+	<url>http://maven.jahia.org/maven2</url>
+	</repository>
+  </repositories>
+  
   <properties>
   		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
   </properties>
@@ -58,6 +67,13 @@
 		    <artifactId>jstl-api</artifactId>
 		    <version>1.2</version>
 		    <type>jar</type>
+		</dependency>
+		
+		<!-- ORACLE DB -->
+	    <dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc6</artifactId>
+			<version>11.1.0.7.0</version>
 		</dependency>
 		
 		<!-- Spring -->
