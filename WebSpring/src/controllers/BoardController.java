@@ -12,12 +12,17 @@ import vo.Board;
 import dao.BoardDao;
 
 public class BoardController implements Controller{
+	
+	/*스프링 컨테이너에서 사용할 수 있도록 셋터 선언*/
+	private BoardDao boardDao;
+	public void setBoardDao (BoardDao boardDao){
+		this.boardDao = boardDao;
+	}
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
-		//파라미터 전달받기
 		int page = 1;
 		String field = "TITLE";
 		String query = "%%";
@@ -38,18 +43,10 @@ public class BoardController implements Controller{
 			query = _query;
 		}
 		
-		/*모델과 뷰정보를 담는 객체*/
 		
-		/*
-		//1.setViewName을 사용해 뷰정보 돌려줌
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("board.jsp");
-		*/
-		
-		//2.생성자로 뷰정보 돌려줌
-		
-		BoardDao dao = new BoardDao();
-		List<Board> list = dao.getLists(page, field, query);
+		/*이 객체를 여기서 만들지 않고 스프링 컨테이너에서 만들도록 함*/
+		//BoardDao dao = new BoardDao();
+		List<Board> list = boardDao.getLists(page, field, query);
 		
 		ModelAndView mv = new ModelAndView("board.board");
 		mv.addObject("list", list);
