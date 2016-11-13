@@ -17,6 +17,27 @@ public class BoardController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
+		//파라미터 전달받기
+		int page = 1;
+		String field = "TITLE";
+		String query = "%%";
+		
+		String _page = request.getParameter("pg");
+		String _field = request.getParameter("f");
+		String _query = request.getParameter("q");
+		
+		if (_page != null && !_page.equals("")) {
+			page = Integer.parseInt(_page);
+		}
+		
+		if (_field != null && !_field.equals("")) {
+			field = _field;
+		}
+		
+		if (_query != null && !_query.equals("")) {
+			query = _query;
+		}
+		
 		/*모델과 뷰정보를 담는 객체*/
 		
 		/*
@@ -28,7 +49,7 @@ public class BoardController implements Controller{
 		//2.생성자로 뷰정보 돌려줌
 		
 		BoardDao dao = new BoardDao();
-		List<Board> list = dao.getLists(1, "TITLE", "%%");
+		List<Board> list = dao.getLists(page, field, query);
 		
 		ModelAndView mv = new ModelAndView("board.board");
 		mv.addObject("list", list);
