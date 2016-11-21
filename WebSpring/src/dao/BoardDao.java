@@ -105,7 +105,7 @@ public class BoardDao {
 	public int update(Board board) throws ClassNotFoundException, SQLException{
 		
 		// 2. 데이터 베이스를 연동하기 위한 쿼리와 데이터베이스 연동을 위한 코드를 작성
-		String sql = "UPDATE BOARD2 SET TITLE=?, CONTENTS=?, FILESRC=? WHERE IDX=to_number(?)";
+		String sql = "UPDATE BOARD2 SET TITLE=?, CONTENTS=? WHERE IDX=to_number(?)";
 		// 0. 드라이버 로드
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		// 1. 접속
@@ -116,8 +116,7 @@ public class BoardDao {
 		
 		st.setString(1, board.getTitle());
 		st.setString(2, board.getContents());
-		st.setString(3, board.getFileSrc());
-		st.setString(4, board.getIdx());		
+		st.setString(3, board.getIdx());		
 		
 		int af = st.executeUpdate();
 		
@@ -174,5 +173,35 @@ public class BoardDao {
 		con.close();
 		
 		return af;
+	}
+
+	public Board getBoard(String idx) throws ClassNotFoundException, SQLException {
+		
+		String sql = "SELECT * FROM BOARD2 WHERE IDX="+idx;
+		// 0. 드라이버 로드
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		// 1. 접속
+		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl",
+				"HR", "duddms330");
+		// 2. 실행
+		Statement st = con.createStatement();
+		// 3. 결과
+		ResultSet rs = st.executeQuery(sql);
+		rs.next();
+		
+		Board b = new Board();
+		b.setIdx(rs.getString("idx"));
+		b.setTitle(rs.getString("title"));
+		b.setCreaId(rs.getString("crea_id"));
+		b.setCreaDtm(rs.getDate("crea_dtm"));
+		b.setHitCnt(rs.getInt("hit_cnt"));
+		b.setContents(rs.getString("contents"));
+		b.setFileSrc(rs.getString("fileSrc"));
+		
+		rs.close();
+		st.close();
+		con.close();
+		
+		return b;
 	}
 }

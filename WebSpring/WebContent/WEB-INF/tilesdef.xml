@@ -4,9 +4,9 @@
        "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 <!-- board얘가 요청되면 조립해줌 -->
-  <definition name="board.board" template="/inc/layout.jsp">
+  <definition name="board.*" template="/inc/layout.jsp">
     <put-attribute name="header" value="/inc/header.jsp" />
     <put-attribute name="aside" value="/inc/aside.jsp" />
-    <put-attribute name="content" value="/board/board.jsp" />
+    <put-attribute name="content" value="/board/{1}.jsp" />
   </definition>
 </tiles-definitions>

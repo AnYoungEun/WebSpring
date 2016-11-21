@@ -18,7 +18,7 @@ public class BoardController implements Controller{
 	public void setBoardDao (BoardDao boardDao){
 		this.boardDao = boardDao;
 	}
-
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {

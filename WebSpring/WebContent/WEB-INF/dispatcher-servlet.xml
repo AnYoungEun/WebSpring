@@ -11,7 +11,32 @@
 	<bean name="boardDao" class="dao.BoardDao"></bean>
 	
 	<bean name="/board/board.ye" class="controllers.BoardController">
-		<!-- 여기에 셋터 호출 -->
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+	
+	<bean name="/board/boardDetail.ye" class="controllers.BoardDetailController">
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+	
+	<bean name="/board/boardReg.ye" class="controllers.BoardRegController"></bean>
+	
+	<bean name="/board/boardInsert.ye" class="controllers.BoardInsertController">
+		<property name="commandClass" value="vo.Board"></property>
+		<property name="commandName" value="Board"></property>
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+	
+	<bean name="/board/boardModify.ye" class="controllers.BoardModifyController">
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+	
+	<bean name="/board/boardUpdate.ye" class="controllers.BoardUpdateController">
+		<property name="commandClass" value="vo.Board"></property>
+		<property name="commandName" value="Board"></property>
+		<property name="boardDao" ref="boardDao"></property>
+	</bean>
+	
+	<bean name="/board/boardDelete.ye" class="controllers.BoardDeleteController">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
 

@@ -35,7 +35,7 @@
 				<c:forEach var="b" items="${list}">
 				<tr>
 					<td class="seq">${b.idx}</td>
-					<td class="title"><a href="#">${b.title}</a></td>
+					<td class="title"><a href="boardDetail.ye?idx=${b.idx}">${b.title}</a></td>
 					<td class="writer">${b.creaId}</td>
 					<td class="regdate">${b.creaDtm}</td>
 					<td class="hit">${b.hitCnt}</td>
@@ -44,13 +44,23 @@
 			</tbody>
 		</table>
 		
-		<!-- 페이징 임시 -->
-		<ul class="pagination">
-			<li><a href="board.ye?pg=1&f=${param.f}&q=${param.q}">1</a></li>
-			<li><a href="board.ye?pg=2&f=${param.f}&q=${param.q}">2</a></li>
-			<li><a href="board.ye?pg=3&f=${param.f}&q=${param.q}">3</a></li>
-			<li><a href="board.ye?pg=4&f=${param.f}&q=${param.q}">4</a></li>
-			<li><a href="board.ye?pg=5&f=${param.f}&q=${param.q}">5</a></li>
-		</ul>
+		
+		<div>
+			<div class="col-md-5">
+				<a href="boardReg.ye" class="btn btn-default">글쓰기</a>	
+			</div>
+			
+			<div class="col-md-5">
+				<!-- 페이징 임시 -->
+				<ul class="pagination">
+					<li><a href="board.ye?pg=1&f=${param.f}&q=${param.q}">1</a></li>
+					<li><a href="board.ye?pg=2&f=${param.f}&q=${param.q}">2</a></li>
+					<li><a href="board.ye?pg=3&f=${param.f}&q=${param.q}">3</a></li>
+					<li><a href="board.ye?pg=4&f=${param.f}&q=${param.q}">4</a></li>
+					<li><a href="board.ye?pg=5&f=${param.f}&q=${param.q}">5</a></li>
+				</ul>
+			</div>
+		</div>
+		
 	</div>
 </div>
