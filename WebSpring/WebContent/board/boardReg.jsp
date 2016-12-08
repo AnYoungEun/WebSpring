@@ -6,13 +6,13 @@
 
 	<div id="board-article-detail">
 		<div class="col-md-7">
-			<form action="boardInsert.ye" method="post">
+			<form action="boardReg.ye" method="post">
 				<div class="form-group">
 					<label for="title">제목</label>
 					<input type="text" name="title" class="form-control" id="title">
 				</div>
 				<div class="form-group">
-					<label for="title">내용</label>
+					<label for="contents">내용</label>
 					<textarea name="contents" class="form-control" rows="5"></textarea>
 				</div>
 				

@@ -6,7 +6,7 @@
 
 	<div id="board-article-detail">
 		<div class="col-md-7">
-			<form action="boardUpdate.ye" method="post">
+			<form action="boardModify.ye" method="post">
 				<div class="form-group">
 					<label for="title">제목</label>
 					<input type="text" name="title" class="form-control" id="title" value="${board.title}">

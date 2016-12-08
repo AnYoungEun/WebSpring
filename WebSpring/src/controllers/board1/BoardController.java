@@ -1,4 +1,4 @@
-package controllers;
+package controllers.board1;
 
 import java.util.List;
 

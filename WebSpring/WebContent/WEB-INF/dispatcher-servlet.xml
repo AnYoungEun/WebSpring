@@ -10,6 +10,10 @@
 
 	<bean name="boardDao" class="dao.BoardDao"></bean>
 	
+	<context:component-scan base-package="controllers"></context:component-scan>
+	
+	<!-- 맵핑정보가 자주 달라지면 이런 방법이 좋음 -->
+	<!-- 
 	<bean name="/board/board.ye" class="controllers.BoardController">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
@@ -39,7 +43,8 @@
 	<bean name="/board/boardDelete.ye" class="controllers.BoardDeleteController">
 		<property name="boardDao" ref="boardDao"></property>
 	</bean>
-
+ 	-->
+ 	
 	<!-- 타일즈를 위한 리졸버 설정 -->
 	<bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">

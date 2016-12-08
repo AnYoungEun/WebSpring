@@ -1,4 +1,4 @@
-package controllers;
+package controllers.board1;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.mvc.Controller;
 import vo.Board;
 import dao.BoardDao;
 
-public class BoardDetailController implements Controller{
+public class BoardModifyController implements Controller{
 	
 	/*스프링 컨테이너에서 사용할 수 있도록 셋터 선언*/
 	private BoardDao boardDao;
@@ -25,7 +25,6 @@ public class BoardDetailController implements Controller{
 		Board board = boardDao.getBoard(idx);
 		
 		ModelAndView mv = new ModelAndView("board.boardDetail");
-		mv.addObject("board", board);
 		
 		return mv;
 	}
